@@ -2,6 +2,7 @@
 <p>Find me in app/views/welcome/index.html.erb</p>
 
 <% if user_signed_in? %>
+  <h1>こんにちは、<%= current_user.name %>さん</h1>
   <%= link_to 'プロフィール変更', edit_user_registration_path %>
   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <% else %>
