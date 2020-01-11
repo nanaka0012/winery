@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index' #これを追記 
 
     devise_scope :user do
-    get "user/:id", :to => "welcome#index"
+    get "user/:id", :to => "mypage#index"
     get "signup", :to => "users/registrations#new"
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
