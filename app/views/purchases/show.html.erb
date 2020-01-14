@@ -1,2 +1,18 @@
 <h1>Purchases#show</h1>
 <p>Find me in app/views/purchases/show.html.erb</p>
+
+<h2>
+<%= @purchase.wine.name %>
+</h2>
+<p>
+<%= @purchase.user.name %>
+</p>
+<div>
+    星 
+    <% for i in 1..@purchase.star %>
+        ☆
+    <% end %>
+</div>
+<div>
+    <%= @purchase.comment%>
+</div>

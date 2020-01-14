@@ -1,0 +1,27 @@
+<h1>Wines#new</h1>
+<p>Find me in app/views/wines/new.html.erb</p>
+
+<div class="form-wid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_with model: @wine do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :country %>
+        <%= f.text_field :country, class: 'form-control' %>
+
+        <%= f.label :color_id %>
+        <%= f.collection_select :color_id, Color.all, :id, :name, class: 'form-control' %>
+
+        <%= f.label :taste_id %>
+        <%= f.collection_select :taste_id, Taste.all, :id, :name, class: 'form-control' %>
+
+        <%= f.label :label %>
+        <%= f.file_field :label, class: 'form-control' %>
+
+        <%= f.submit "Create wine data", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

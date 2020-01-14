@@ -1,5 +1,5 @@
 class Purchase < ApplicationRecord
-    belong_to :user
-    belong_to :location
-    belong_to :wine
+    belongs_to :user
+    belongs_to :location
+    belongs_to :wine
 end

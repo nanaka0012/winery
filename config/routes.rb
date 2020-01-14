@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'purchases/index'
-  get 'purchases/new'
-  get 'purchases/show'
-  get 'purchases/edit'
+  resources :wines, :only => [ :new, :edit, :index, :show, :create]
+  resources :purchases, :only => [ :index, :new, :edit, :show, :create ]
   # get 'mypage/index'
   resources :mypage, :only => [ :index ]
   root 'welcome#index' #これを追記 
