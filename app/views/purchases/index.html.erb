@@ -1,25 +1,43 @@
-<h1>Purchases#index</h1>
-<p>Find me in app/views/purchases/index.html.erb</p>
-<%= link_to '新規追加', new_purchase_path %>
-<h1>購入記録一覧</h1>
-<table>
-    <thead>
-        <th>ID</th>
-        <th>ワイン</th>
-        <th>ユーザー</th>
-        <th>購入場所</th>
-        <th>星</th>
-    </thead>
-    <tbody>
-        <% @purchases.each do |purchase| %>
-            <tr>
-                <td><%= link_to purchase.id, purchase_path(purchase.id) %></td>
-                <td><%= purchase.wine.name %></td>
-                <td><%= purchase.user.name %></td>
-                <td><%= purchase.location.name %></td>
-                <td><%= purchase.star %></td>
-            </tr>
-        <% end%>
-    </tbody>
-</table>
-<%= link_to 'マイページに戻る', mypage_index_path %>
+<div class="container">
+    <div class="section">
+        <div class="box">
+            <h1 class="title">購入記録一覧</h1>
+            <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>ワイン</th>
+                    <th>ユーザー</th>
+                    <th>購入場所</th>
+                    <th>星</th>
+                </thead>
+                <tbody>
+                    <% @purchases.each do |purchase| %>
+                        <tr>
+                            <td><%= link_to purchase.id, purchase_path(purchase.id) %></td>
+                            <td><%= purchase.wine.name %></td>
+                            <td><%= purchase.user.name %></td>
+                            <td><%= purchase.location.name %></td>
+                            <td><%= purchase.star %></td>
+                        </tr>
+                    <% end%>
+                </tbody>
+            </table>
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <%= link_to new_purchase_path do %>
+                            <span class="icon has-text-success is-large">
+                                <i class="fas fa-3x fa-plus-circle"></i>
+                            </span>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <%= link_to 'マイページに戻る', mypage_index_path %>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
