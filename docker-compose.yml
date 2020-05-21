@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+  web:
+    build: .
+    command: rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/app_name
+      - app-bundle:/usr/local/bundle
+      - yarn-cache:/usr/local/share/.cache/yarn
+      - sprockets_cache:/sprockets_cache
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    environment:
+      SPROCKETS_CACHE: /sprockets_cache
+
+volumes:
+  app-bundle:
+  yarn-cache:
+  sprockets_cache:
+  mysql-data:
+    driver: local
