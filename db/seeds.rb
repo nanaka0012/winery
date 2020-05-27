@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = []
-users << User.create({ name: 'ななちゃん', email: 'nana@nana.com', password: "nanagon"})
+users << User.create({ name: 'なな', email: 'nana@nana.com', password: "nanagon"})
 
 colors = []
 colors << Color.create({ name: '赤' })
